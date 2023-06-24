@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace RestaurantAPI.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public bool HasDeliver { get; set; }
+        public bool HasDelivery { get; set; }
         public string ContactEmail { get; set; }
         public string ContactNumber { get; set; }
 
