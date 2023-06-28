@@ -70,6 +70,9 @@ namespace RestaurantAPI.Services
                 .Include(r => r.Dishes)
                 .FirstOrDefault(r => r.Id == id);
 
+
+
+
             if(restaurant == null) return null;
 
             var result = _mapper.Map<RestaurantDto>(restaurant);
