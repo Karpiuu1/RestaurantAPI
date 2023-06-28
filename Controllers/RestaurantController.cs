@@ -26,7 +26,6 @@ namespace RestaurantAPI.Controllers
         public ActionResult Update([FromBody] UpdateRestaurantDto dto, [FromRoute] int id) 
         {
 
-
             _restaurantService.Update(id, dto);
        
             return Ok();
