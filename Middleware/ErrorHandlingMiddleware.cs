@@ -5,6 +5,7 @@ using RestaurantAPI.Exceptions;
 using System;
 using System.Threading.Tasks;
 
+
 namespace RestaurantAPI.Middleware
 {
     public class ErrorHandlingMiddleware : IMiddleware
@@ -19,6 +20,10 @@ namespace RestaurantAPI.Middleware
             try
             {
                 await next.Invoke(context);
+            }
+            catch (ForbidException forbidException)
+            {
+                context.Response.StatusCode = 403;
             }
             catch (BadRequestException badRequestException)
             {
