@@ -57,9 +57,9 @@ namespace RestaurantAPI.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult<IEnumerable<RestaurantDto>> GetAll([FromQuery] string searchPhrase) 
+        public ActionResult<IEnumerable<RestaurantDto>> GetAll([FromQuery]RestaurantQuery query) 
         {
-            var restaurantDtos = _restaurantService.GetAll(searchPhrase);
+            var restaurantDtos = _restaurantService.GetAll(query);
             return Ok(restaurantDtos);
         }
 
