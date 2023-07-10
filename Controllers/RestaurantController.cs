@@ -55,15 +55,22 @@ namespace RestaurantAPI.Controllers
             return Created($"/api/restaurant/{id}", null);
         }
 
-
         [HttpGet]
-        [Authorize(Policy ="CreatedAtLeast2Restaurants")]
-        public ActionResult<IEnumerable<RestaurantDto>> GetAll()
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<RestaurantDto>> GetAll([FromQuery] string searchPhrase) 
         {
-            var restaurantsDtos = _restaurantService.GetAll();
-
-            return Ok(restaurantsDtos);
+            var restaurantDtos = _restaurantService.GetAll(searchPhrase);
+            return Ok(restaurantDtos);
         }
+
+       // [HttpGet]
+      //  [Authorize(Policy ="CreatedAtLeast2Restaurants")]
+      //  public ActionResult<IEnumerable<RestaurantDto>> GetAll()
+      // {
+       //     var restaurantsDtos = _restaurantService.GetAll();
+
+      //      return Ok(restaurantsDtos);
+      //  }
 
         [HttpGet("{id}")]
         [AllowAnonymous]
