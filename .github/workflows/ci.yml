@@ -1,10 +1,10 @@
 name: CI
 on:
   push:
-    branches: [ master-pipeline]
+    branches: [ main]
   pull_request:
     branches: 
-      - master-pipieline
+      - main
  
     
 jobs:
